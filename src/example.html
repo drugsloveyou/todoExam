@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>Fetch IE8</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    .todoapp button {
+      margin-left: 5px
+    }
+  </style>
+  <link rel="stylesheet" href="./index.css" />
+</head>
+
+<body>
+  <div id="app" class="todoapp">
+    <div>
+      <header class="header">
+        <h1>todos</h1>
+        <input class="new-todo" type="text" placeholder="What needs to be done?">
+      </header>
+      <section class="main">
+        <span>
+          <input class="toggle-all" id="toggle-all" type="checkbox" checked=true/>
+          <label for="toggle-all"> </label>
+        </span>
+        <ul class="todo-list">
+          <li class="completed">
+            <div class="view">
+              <input class="toggle" type="checkbox">
+              <label>Init Redux</label>
+              <button class="destroy"></button>
+            </div>
+          </li>
+          <li>
+            <div class="view">
+              <input class="toggle" type="checkbox">
+              <label>Redux</label>
+              <button class="destroy"></button>
+            </div>
+          </li>
+          <li class="editing">
+            <input type="text" class="edit" />
+          </li>
+        </ul>
+      </section>
+      <footer class="footer">
+        <span class="todo-count">
+          <strong>2</strong>
+          <span> </span>
+          <span>items</span>
+          <span> left</span>
+        </span>
+        <ul class="filters">
+          <li>
+            <a class="selected">All</a>
+          </li>
+          <li>
+            <a class="">Active</a>
+          </li>
+          <li>
+            <a class="">Completed</a>
+          </li>
+        </ul>
+        <button class="clear-completed">clear completed</button>
+      </footer>
+    </div>
+  </div>
+</body>
+
+</html>
