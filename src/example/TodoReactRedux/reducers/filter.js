@@ -1,12 +1,11 @@
-import { FILTER_TODO } from "../constants/ActionTypes";
+import { filterTodo } from "../actions";
 import { ALL } from "../constants/Filters";
-
+import { handleActions } from "redux-actions";
 const initState = ALL;
-export const filter = (state = initState, action) => {
-  switch (action.type) {
-    case FILTER_TODO:
-      return action.filter;
-    default:
-      return state;
-  }
-};
+
+export default handleActions(
+  {
+    [filterTodo]: (state, action) => action.payload.filter
+  },
+  initState
+);

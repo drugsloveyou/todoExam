@@ -6,7 +6,7 @@
   "scripts": {
     "test": "cross-env NODE_ENV=test jest",
     "dll": "cross-env NODE_ENV=development webpack --config webpack/webpack.dll.config.js",
-    "start": "cross-env NODE_ENV=production node server",
+    "start": "cross-env NODE_ENV=development node server",
     "start:dll": "npm run dll && npm run start",
     "start:tunnel": "cross-env NODE_ENV=development ENABLE_TUNNEL=true node server",
     "start:ie8": "cross-env NODE_ENV=production node server",

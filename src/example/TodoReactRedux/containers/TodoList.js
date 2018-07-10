@@ -1,23 +1,10 @@
 import { connect } from "react-redux";
 import TodoList from "../components/TodoList";
 import { deleteTodo, editTodo, completeTodo } from "../actions";
-import { ALL, ACTIVE, COMPLETED } from "../constants/Filters";
+import { getFilteTodos } from "../selectors/index";
 
-function filtTodos(todos = [], filter = ALL) {
-  switch (filter) {
-    case ALL:
-      return todos;
-    case ACTIVE:
-      return todos.filter(todo => !todo.completed);
-    case COMPLETED:
-      return todos.filter(todo => todo.completed);
-    default:
-      return todos;
-  }
-}
-
-const mapStateToProps = (state) => ({
-  todos: filtTodos(state.todos, state.filter)
+const mapStateToProps = state => ({
+  todos: getFilteTodos(state)
 });
 
 const mapDispatchToProps = { deleteTodo, editTodo, completeTodo };

@@ -1,12 +1,10 @@
 import { connect } from "react-redux";
 import Footer from "../components/Footer";
 import { filterTodo, removeCompleteTodo } from "../actions";
+import { getUnCompletedCount } from "../selectors/index";
 
-const mapStateToProps = (state, ownProps) => ({
-  unCompletedCount: state.todos.reduce(
-    (count, todo) => (!todo.completed ? count + 1 : count),
-    0
-  ),
+const mapStateToProps = state => ({
+  unCompletedCount: getUnCompletedCount(state),
   todoCount: state.todos.length,
   filter: state.filter
 });

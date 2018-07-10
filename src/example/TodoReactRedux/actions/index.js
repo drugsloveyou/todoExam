@@ -1,35 +1,33 @@
 import * as types from "../constants/ActionTypes";
+import { createAction } from "redux-actions";
+import http from "../utils/http";
+import { ApiAddTodo } from "../constants/Api";
 
-export const addTodo = text => ({
-  type: types.ADD_TODO,
-  text
+export const addTodo = createAction(types.ADD_TODO, async text => {
+  const data = http(ApiAddTodo);
+  return {
+    ...data,
+    text
+  };
 });
 
-export const editTodo = (id, text) => ({
-  type: types.EDIT_TODO,
+export const editTodo = createAction(types.EDIT_TODO, (id, text) => ({
   id,
   text
-});
+}));
 
-export const deleteTodo = id => ({
-  type: types.DELETE_TODO,
+export const deleteTodo = createAction(types.DELETE_TODO, id => ({
   id
-});
+}));
 
-export const completeTodo = id => ({
-  type: types.COMPLETE_TODO,
+export const completeTodo = createAction(types.COMPLETE_TODO, id => ({
   id
-});
+}));
 
-export const completeAllTodo = () => ({
-  type: types.COMPLETE_ALL_TODO
-});
+export const completeAllTodo = createAction(types.COMPLETE_ALL_TODO);
 
-export const removeCompleteTodo = () => ({
-  type: types.REMOVE_COMPLETED_TODO
-});
+export const removeCompleteTodo = createAction(types.REMOVE_COMPLETED_TODO);
 
-export const filterTodo = filter => ({
-  type: types.FILTER_TODO,
+export const filterTodo = createAction(types.FILTER_TODO, filter => ({
   filter
-});
+}));
