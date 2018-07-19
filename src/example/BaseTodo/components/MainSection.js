@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import TodoList from "./TodoList";
+import TodoList from "../containers/TodoList";
 
 export default class MainSection extends Component {
   handleChange() {
@@ -9,7 +9,7 @@ export default class MainSection extends Component {
   render() {
     return (
       <section className="main">
-        {this.props.todos.length > 0 ? (
+        {this.props.todoCount > 0 ? (
           <span>
             <input
               className="toggle-all"

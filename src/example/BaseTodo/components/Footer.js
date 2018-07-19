@@ -1,20 +1,17 @@
 import React, { Component } from "react";
 import classnames from "classnames";
 import * as Filters from "../constants/Filters";
-import { getUnCompleteTodo } from "../selectors";
 
 const { values } = Object;
 
 export default class Footer extends Component {
   render() {
-    const unCompletedTodo = getUnCompleteTodo(this.props.todos);
-
     return (
       <footer className="footer">
         <span className="todo-count">
-          <strong>{unCompletedTodo}</strong>
+          <strong>{this.props.unCompletedTodo}</strong>
           <span> </span>
-          <span>{unCompletedTodo > 1 ? "items" : "item"}</span>
+          <span>{this.props.unCompletedTodo > 1 ? "items" : "item"}</span>
           <span> left</span>
         </span>
         <ul className="filters">
@@ -24,17 +21,17 @@ export default class Footer extends Component {
                 className={classnames({
                   selected: this.props.filter === value
                 })}
-                onClick={() => this.props.filteTodo(value)}
+                onClick={() => this.props.filterTodo(value)}
               >
                 {value}
               </a>
             </li>
           ))}
         </ul>
-        {unCompletedTodo == this.props.todos.length ? null : (
+        {this.props.unCompletedTodo == this.props.todoCount ? null : (
           <button
             className="clear-completed"
-            onClick={this.props.clearCompletedTodo}
+            onClick={this.props.removeCompleteTodo}
           >
             clear completed
           </button>

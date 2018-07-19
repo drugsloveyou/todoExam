@@ -3,7 +3,6 @@ import { ALL, ACTIVE, COMPLETED } from "../constants/Filters";
 
 const todosSelector = state => state.todos;
 const filterSelector = state => state.filter;
-
 export const getUnCompletedCount = createSelector(todosSelector, todos =>
   todos.reduce((count, todo) => (!todo.completed ? count + 1 : count), 0)
 );
