@@ -5,6 +5,7 @@ export default class MainSection extends Component {
   handleChange() {
     this.props.completeAllTodo();
   }
+
   render() {
     return (
       <section className="main">

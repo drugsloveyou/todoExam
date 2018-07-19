@@ -1,53 +1,26 @@
 import React, { Component } from "react";
 import classnames from "classnames";
 import TodoTextInput from "./TodoTextInput";
-/*<input
-            type="text"
-            className="edit"
-            value={this.props.text}
-            autoFocus={true}
-            onKeyDown={this.handleKeyDown.bind(this)}
-          onBlur={this.handleBlur.bind(this)} 
-          />*/
-
 export default class TodoItem extends Component {
   state = {
     editing: false
   };
 
   handleDoubleClick() {
-    this.setState({
-      editing: true
-    });
+    this.setState({ editing: true });
   }
 
-  handleKeyDown(e) {
-    if (e.keyCode == 13) {
-      this.setState({
-        editing: false
-      });
+  handleDeleteTodo(id) {
+    this.props.deleteTodo(id);
+  }
+
+  handleSave(id, text) {
+    if (text) {
+      this.props.editTodo(id, text);
+    } else {
+      this.props.deleteTodo(id);
     }
-  }
-
-  handleBlur(e) {
-    if (e) {
-      let value = e.target.value.trim();
-      if (value) {
-        this.handleSave(value);
-      }
-    }
-
-    this.setState({
-      editing: false
-    });
-  }
-
-  handleChange(id) {
-    this.props.completeTodo(id);
-  }
-
-  handleSave(text) {
-    this.props.editTodo(this.props.id, text);
+    this.setState({ editing: false });
   }
 
   render() {
@@ -60,10 +33,9 @@ export default class TodoItem extends Component {
       >
         {this.state.editing ? (
           <TodoTextInput
-            edit
+            editing={this.state.editing}
             value={this.props.text}
-            onSave={text => this.handleSave(text)}
-            onBlur={this.handleBlur.bind(this)}
+            onSave={text => this.handleSave(this.props.id, text)}
           />
         ) : (
           <div
@@ -74,10 +46,13 @@ export default class TodoItem extends Component {
               className="toggle"
               type="checkbox"
               checked={this.props.completed}
-              onChange={() => this.handleChange(this.props.id)}
+              onChange={() => this.props.completeTodo(this.props.id)}
             />
             <label>{this.props.text}</label>
-            <button className="destroy" onClick={()=>this.props.deleteTodo(this.props.id)}/>
+            <button
+              className="destroy"
+              onClick={() => this.handleDeleteTodo(this.props.id)}
+            />
           </div>
         )}
       </li>

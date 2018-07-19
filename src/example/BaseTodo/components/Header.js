@@ -9,10 +9,7 @@ export default class Header extends Component {
         <TodoTextInput
           newTodo
           placeholder="What needs to be done?"
-          onSave={text => {
-            console.log("text", text);
-            this.props.addTodo(text);
-          }}
+          onSave={this.props.addTodo}
         />
       </header>
     );
