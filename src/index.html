@@ -1,66 +1,37 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Fetch IE8</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      .todoapp button {
+        margin-left: 5px;
+      }
+    </style>
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <title>Fetch IE8</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    .todoapp button {
-      margin-left: 5px
-    }
-  </style>
-</head>
+  <body>
+    <div id="app" class="todoapp"></div>
+    <div id="hello">你好呀</div>
+    <div id="test">1</div>
+    <canvas style="width:200px; height:200px;background:red;"></canvas>
+    <script>
+      document.onload = function() {
+        document.getElementById("test").innerHTML = window.RnYYModule;
+      };
+      var RnYYModule = window.RnYYModule;
+      document.getElementById("test").onclick = function() {
+        ReactNativeWebView.postMessage({ name: 1, test: 2 });
+      };
 
-<body>
-  <div id="app" class="todoapp">
-    <!--<div>
-      <header class="header" >
-        <h1>todos</h1>
-        <input class="new-todo" type="text" placeholder="What needs to be done?">
-      </header>
-      <section class="main">
-        <ul class="todo-list">
-          <li class="">
-            <div class="view">
-              <input class="toggle" type="checkbox">
-              <label>asdsa</label>
-              <button class="destroy"></button>
-            </div>
-          </li>
-          <li class="">
-            <div class="view">
-              <input class="toggle" type="checkbox">
-              <label>fasd</label>
-              <button class="destroy"></button>
-            </div>
-          </li>
-        </ul>
-        <footer class="footer" >
-          <span class="todo-count">
-            <strong>2</strong>
-            <span> </span>
-            <span>items</span>
-            <span> left</span>
-          </span>
-          <ul class="filters">
-            <li>
-              <a class="selected">All</a>
-            </li>
-            <li>
-              <a class="">Active</a>
-            </li>
-            <li>
-              <a class="">Completed</a>
-            </li>
-          </ul>
-        </footer>
-      </section>
-    </div>
-    -->
-  </div>
-  <!-- <script src="lib/axios.min.js"></script> -->
-</body>
-
+      window.onmessage = function(e, b, c) {
+        alert(e);
+      };
+      keyboardDidChangeHeight = function(e) {
+        alert(e);
+      };
+    </script>
+  </body>
 </html>

@@ -14,12 +14,13 @@ const store = createStore(reducers, applyMiddleware(...middleware));
 const DOM = document.getElementById("app");
 
 const render = () => {
-  ReactDOM.render(
-    <Provider store={store}>
-      <TodoApp />
-    </Provider>,
-    DOM
-  );
+  if (DOM)
+    ReactDOM.render(
+      <Provider store={store}>
+        <TodoApp />
+      </Provider>,
+      DOM
+    );
 };
 
 render();
