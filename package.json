@@ -111,7 +111,7 @@
     "purify-css": "^1.2.5",
     "purifycss-webpack": "^0.7.0",
     "react-addons-test-utils": "^0.14.8",
-    "react-dev-utils": "^5.0.1",
+    "react-dev-utils": "^11.0.4",
     "redux-devtools": "^3.4.1",
     "redux-devtools-chart-monitor": "^1.7.0",
     "redux-devtools-dock-monitor": "^1.1.3",
